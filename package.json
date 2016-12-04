@@ -1,0 +1,50 @@
+{
+  "name": "react-starter",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "build": "node scripts/build.js & webpack",
+    "stats": "webpack --profile --json > stats.json",
+    "start": "webpack-dev-server",
+    "test:lint": "eslint . --ext .js --ext .jsx --cache"
+  },
+  "keywords": [],
+  "author": "Alexander Torn",
+  "license": "MIT",
+  "description": "React starter kit: react v 15.4.0, webpack 2, react hot loader 3 etc.",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "devDependencies": {
+    "babel-core": "^6.18.0",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.8",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "clean-webpack-plugin": "^0.1.14",
+    "css-loader": "^0.26.0",
+    "eslint": "^3.11.1",
+    "eslint-loader": "^1.6.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-react": "^6.7.1",
+    "extract-text-webpack-plugin": "^2.0.0-beta.4",
+    "file-loader": "^0.9.0",
+    "fs-extra": "^1.0.0",
+    "html-webpack-plugin": "^2.24.1",
+    "node-sass": "^3.13.0",
+    "postcss-loader": "^1.1.1",
+    "react-dev-utils": "^0.3.0",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "webpack-dev-server": "^2.1.0-beta.10",
+    "webpack-manifest-plugin": "^1.1.0",
+    "webpack-merge": "^0.18.0"
+  },
+  "dependencies": {
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "webpack": "^2.1.0-beta.25"
+  }
+}
