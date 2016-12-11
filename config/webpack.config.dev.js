@@ -24,13 +24,14 @@ module.exports = {
         paths.appIndexJs
     ],
     output: {
-        path: paths.appBuild,
+        path: paths.appPublic,
         pathinfo: true,
-        filename: 'static/js/bundle.js',
+        filename: 'assets/js/bundle.js',
         publicPath: publicPath
     },
     devServer: {
-        contentBase: paths.appPublic,
+        contentBase: paths.appSrc,
+        publicPath: '/',
         historyApiFallback: true,
         inline: true,
         port: 3000,
@@ -57,13 +58,9 @@ module.exports = {
                 },
                 exclude: '/node_modules/'
             },
-            // {
-            //     test: /\.css$/,
-            //     loader: 'style!css?importLoaders=1!postcss'
-            // },
             {
                 test: /\.scss$/,
-                loader: ['style-loader', 'css-loader?sourceMap&-autoprefixer', 'postcss-loader', 'sass-loader?sourceMap'],
+                loader: ['style-loader', 'css-loader?-autoprefixer', 'postcss-loader', 'sass-loader'],
                 include: paths.appStyle
             },
             {
@@ -76,7 +73,7 @@ module.exports = {
                 query: {
                     name: 'assets/fonts/[name].[hash:8].[ext]'
                 },
-                include: './src/app/fonts/'
+                // include: './src/assets/fonts/'
             },
             {
                 test: /\.(ico|jpg|jpeg|png|gif|svg)(\?.*)?$/,

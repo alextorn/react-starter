@@ -18,7 +18,8 @@ const publicUrl = '';
 module.exports = {
     // Don't attempt to continue if there are any errors.
     bail: true,
-    devtool: 'source-map',
+    // devtool: 'source-map',
+    devtool: 'eval',
     entry: {
         main: paths.appIndexJs,
         vendor: ['react', 'react-dom']
@@ -35,7 +36,8 @@ module.exports = {
                 enforce: 'pre',
                 test: /\.(js|jsx)$/,
                 loader: 'eslint-loader',
-                exclude: '/node_modules/'
+                exclude: '/node_modules/',
+                include: paths.appSrc
             },
             {
                 test: /\.(js|jsx)$/,
@@ -49,7 +51,7 @@ module.exports = {
                 test: /\.scss$/,
                 loader: ExtractTextPlugin.extract({
                     fallbackLoader: 'style-loader',
-                    loader: ['css-loader?-autoprefixer', 'postcss-loader', 'sass-loader']
+                    loader: ['css-loader?-autoprefixer', 'postcss-loader', 'sass-loader?sourceMap']
                 }),
                 include: paths.appStyle
             },
@@ -66,10 +68,12 @@ module.exports = {
             },
             {
                 test: /\.(ico|jpg|jpeg|png|gif|svg)(\?.*)?$/,
-                loader: 'file-loader',
+                loader: 'url-loader',
                 query: {
-                    name: 'assets/images/[name].[hash:8].[ext]'
-                }
+                    limit: 10000,
+                    name: '[path][name].[hash:8].[ext]'
+                },
+                include: paths.appImages
             },
         ]
     },
@@ -137,7 +141,7 @@ module.exports = {
                 screw_ie8: true
             }
         }),
-        new ExtractTextPlugin('assets/style/[name].[contenthash:8].css'),
+        new ExtractTextPlugin('assets/styles/[name].[contenthash:8].css'),
         new ManifestPlugin({
             fileName: 'asset-manifest.json'
         })
