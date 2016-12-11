@@ -6,6 +6,7 @@
     "build": "node scripts/build.js & webpack",
     "stats": "webpack --profile --json > stats.json",
     "start": "webpack-dev-server",
+    "server": "node server/server.js",
     "test:lint": "eslint . --ext .js --ext .jsx --cache"
   },
   "keywords": [],
@@ -32,15 +33,15 @@
     "file-loader": "^0.9.0",
     "fs-extra": "^1.0.0",
     "html-webpack-plugin": "^2.24.1",
+    "koa-static": "^2.0.0",
     "node-sass": "^3.13.0",
     "postcss-loader": "^1.1.1",
     "react-dev-utils": "^0.3.0",
     "react-hot-loader": "^3.0.0-beta.6",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
-    "webpack-dev-server": "^2.1.0-beta.10",
-    "webpack-manifest-plugin": "^1.1.0",
-    "webpack-merge": "^0.18.0"
+    "url-loader": "^0.5.7",
+    "webpack-manifest-plugin": "^1.1.0"
   },
   "dependencies": {
     "react": "^15.4.1",

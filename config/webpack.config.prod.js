@@ -11,15 +11,14 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const paths = require('./paths');
 
-const publicPath = '';
+const publicPath = '/';
 const publicUrl = '';
 
 //Setting webpack
 module.exports = {
     // Don't attempt to continue if there are any errors.
     bail: true,
-    // devtool: 'source-map',
-    devtool: 'eval',
+    devtool: 'source-map',
     entry: {
         main: paths.appIndexJs,
         vendor: ['react', 'react-dom']
@@ -71,7 +70,7 @@ module.exports = {
                 loader: 'url-loader',
                 query: {
                     limit: 10000,
-                    name: '[path][name].[hash:8].[ext]'
+                    name: 'assets/images/[name].[hash:8].[ext]'
                 },
                 include: paths.appImages
             },
