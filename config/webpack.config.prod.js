@@ -5,7 +5,6 @@ const path = require('path');
 const autoprefixer = require('autoprefixer');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
@@ -144,8 +143,5 @@ module.exports = {
         new ManifestPlugin({
             fileName: 'asset-manifest.json'
         })
-        // new CleanWebpackPlugin([paths.appBuild], {
-        //     root: process.cwd()
-        // })
     ]
 }
